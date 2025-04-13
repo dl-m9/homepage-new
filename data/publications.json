@@ -72,24 +72,6 @@
       }
     ]
   },
-  
-  {
-    "title": "Sense4FL: Vehicular Crowdsensing Enhanced Federated Learning for Autonomous Driving",
-    "authors": "Yanan Ma, <strong><u>Senkang \"Forest\" Hu</u></strong>, Zhengru Fang, Yun Ji, Yiqin Deng, Yuguang Fang",
-    "type": "preprint",
-    "isFirstAuthor": false,
-    "tags": [
-      {
-        "text": "Preprint",
-        "class": "preprint-tag"
-      },
-      {
-        "text": "PDF",
-        "class": "code-tag",
-        "link": "https://arxiv.org/abs/2503.17697"
-      }
-    ]
-  },
   {
     "title": "GCP: Guarded Collaborative Perception with Spatial-Temporal Aware Malicious Agent Detection",
     "authors": "Yihang Tao<sup>#</sup>, <strong><u>Senkang \"Forest\" Hu</u></strong><sup>#</sup>, Yue Hu, Haonan An, Hangcheng Cao, Yuguang Fang",
@@ -107,6 +89,24 @@
       }
     ]
   },
+  {
+    "title": "Sense4FL: Vehicular Crowdsensing Enhanced Federated Learning for Autonomous Driving",
+    "authors": "Yanan Ma, <strong><u>Senkang \"Forest\" Hu</u></strong>, Zhengru Fang, Yun Ji, Yiqin Deng, Yuguang Fang",
+    "type": "preprint",
+    "isFirstAuthor": false,
+    "tags": [
+      {
+        "text": "Preprint",
+        "class": "preprint-tag"
+      },
+      {
+        "text": "PDF",
+        "class": "code-tag",
+        "link": "https://arxiv.org/abs/2503.17697"
+      }
+    ]
+  },
+  
   {
     "title": "IC3M: In-Car Multimodal Multi-object Monitoring for Abnormal Status of Both Driver and Passengers",
     "authors": "Zihan Fang, Zheng Lin, <strong><u>Senkang \"Forest\" Hu</u></strong>, Hangcheng Cao, Xianhao Chen, and Yuguang Fang",
