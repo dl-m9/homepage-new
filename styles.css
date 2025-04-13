@@ -838,6 +838,7 @@ nav {
     /* text-transform: uppercase; */
     word-break: break-word;
     hyphens: auto;
+    text-align: right;
 }
 
 .pub-content {
@@ -906,6 +907,21 @@ nav {
     .venue-text {
         text-align: right;
     }
+}
+
+/* Publication section titles */
+.publication-section-title {
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* No top margin for the first section title */
+.publication-section-title:first-child {
+    margin-top: 0;
 }
 
 .tag {

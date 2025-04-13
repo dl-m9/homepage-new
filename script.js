@@ -20,17 +20,81 @@ document.addEventListener('DOMContentLoaded', function() {
             // Get filter value
             const filterValue = this.getAttribute('data-filter');
             
-            // Filter publications
+            // Filter publications and section titles
             const pubElements = document.querySelectorAll('.publication');
-            pubElements.forEach(pub => {
-                if (filterValue === 'all') {
+            const sectionTitles = document.querySelectorAll('.publication-section-title');
+            
+            // Handle different filter scenarios
+            if (filterValue === 'all') {
+                // Show all publications and section titles
+                pubElements.forEach(pub => {
                     pub.style.display = 'flex';
-                } else if (pub.classList.contains(filterValue)) {
-                    pub.style.display = 'flex';
-                } else {
-                    pub.style.display = 'none';
-                }
-            });
+                });
+                sectionTitles.forEach(title => {
+                    title.style.display = 'block';
+                });
+            } else if (filterValue === 'preprint') {
+                // Show only preprints and hide accepted papers sections
+                pubElements.forEach(pub => {
+                    if (pub.classList.contains('preprint')) {
+                        pub.style.display = 'flex';
+                    } else {
+                        pub.style.display = 'none';
+                    }
+                });
+                sectionTitles.forEach(title => {
+                    if (title.textContent === 'Preprints') {
+                        title.style.display = 'block';
+                    } else {
+                        title.style.display = 'none';
+                    }
+                });
+            } else if (filterValue === 'accepted') {
+                // Show only accepted papers and hide preprints section
+                pubElements.forEach(pub => {
+                    if (pub.classList.contains('accepted')) {
+                        pub.style.display = 'flex';
+                    } else {
+                        pub.style.display = 'none';
+                    }
+                });
+                sectionTitles.forEach(title => {
+                    if (title.textContent.includes('Accepted')) {
+                        title.style.display = 'block';
+                    } else {
+                        title.style.display = 'none';
+                    }
+                });
+            } else if (filterValue === 'first-author') {
+                // Show only first-author papers across all sections
+                pubElements.forEach(pub => {
+                    if (pub.classList.contains('first-author')) {
+                        pub.style.display = 'flex';
+                    } else {
+                        pub.style.display = 'none';
+                    }
+                });
+                
+                // Special handling for section titles: only show if there are visible publications in that section
+                sectionTitles.forEach(title => {
+                    const nextEl = title.nextElementSibling;
+                    let hasVisiblePub = false;
+                    let currentEl = nextEl;
+                    
+                    // Check all elements until next section title or end
+                    while (currentEl && !currentEl.classList.contains('publication-section-title')) {
+                        if (currentEl.classList.contains('publication') && 
+                            currentEl.classList.contains('first-author') &&
+                            currentEl.style.display !== 'none') {
+                            hasVisiblePub = true;
+                            break;
+                        }
+                        currentEl = currentEl.nextElementSibling;
+                    }
+                    
+                    title.style.display = hasVisiblePub ? 'block' : 'none';
+                });
+            }
         });
     });
     
@@ -202,100 +266,152 @@ function loadPublications() {
     fetch(publicationsJsonPath)
         .then(response => response.json())
         .then(publications => {
-            // Counter for auto-numbering publications
+            // Group publications by type and year field
+            const preprints = publications.filter(pub => pub.type === 'preprint');
+            const accepted2025 = publications.filter(pub => pub.type === 'accepted' && pub.year === '2025');
+            const accepted2024 = publications.filter(pub => pub.type === 'accepted' && pub.year === '2024');
+            
+            // Debug - log the counts to console
+            console.log('Preprints:', preprints.length);
+            console.log('2025 Papers:', accepted2025.length);
+            console.log('2024 Papers:', accepted2024.length);
+            console.log('Total:', publications.length);
+            console.log('Sum of groups:', preprints.length + accepted2025.length + accepted2024.length);
+            
+            // Counters for auto-numbering publications
             let counter = 1;
             
-            publications.forEach(pub => {
-                const pubElement = document.createElement('div');
-                const classes = ['publication', pub.type];
-                if (pub.isFirstAuthor) classes.push('first-author');
-                pubElement.className = classes.join(' ');
+            // Add section title for Preprints
+            if (preprints.length > 0) {
+                const preprintTitle = document.createElement('h3');
+                preprintTitle.className = 'publication-section-title';
+                preprintTitle.textContent = 'Preprints';
+                publicationsList.appendChild(preprintTitle);
                 
-                // Create venue/type label for left side
-                const venueElement = document.createElement('div');
-                venueElement.className = 'pub-venue-label';
+                // Add preprints
+                renderPublicationGroup(preprints, publicationsList, counter);
+                counter += preprints.length;
+            }
+            
+            // Add section title for Accepted Papers in 2025
+            if (accepted2025.length > 0) {
+                const accepted2025Title = document.createElement('h3');
+                accepted2025Title.className = 'publication-section-title';
+                accepted2025Title.textContent = 'Accepted Papers in 2025';
+                publicationsList.appendChild(accepted2025Title);
                 
-                // Determine what text to show in the left column
-                let venueText = '';
-                if (pub.type === 'preprint') {
-                    venueText = 'Preprint';
-                } else if (pub.venue) {
-                    // Extract short venue name from the venue string or tags
-                    const venueTag = pub.tags.find(tag => tag.class === 'venue-tag');
-                    venueText = venueTag ? venueTag.text : pub.venue.split(',')[0].split(' ').pop();
-                }
+                // Add 2025 papers
+                renderPublicationGroup(accepted2025, publicationsList, counter);
+                counter += accepted2025.length;
+            }
+            
+            // Add section title for Accepted Papers in 2024
+            if (accepted2024.length > 0) {
+                const accepted2024Title = document.createElement('h3');
+                accepted2024Title.className = 'publication-section-title';
+                accepted2024Title.textContent = 'Accepted Papers in 2024';
+                publicationsList.appendChild(accepted2024Title);
                 
-                // Create publication number - display in ascending order (1-15)
-                const numberElement = document.createElement('span');
-                numberElement.className = 'pub-number';
-                numberElement.textContent = counter++;
-                
-                venueElement.appendChild(numberElement);
-                
-                // Add venue text below the number
-                const venueTextElement = document.createElement('span');
-                venueTextElement.className = 'venue-text';
-                venueTextElement.textContent = venueText;
-                venueElement.appendChild(venueTextElement);
-                
-                // Create publication content container
-                const contentElement = document.createElement('div');
-                contentElement.className = 'pub-content';
-                
-                // Add title
-                const titleElement = document.createElement('h3');
-                titleElement.textContent = pub.title;
-                contentElement.appendChild(titleElement);
-                
-                // Add authors
-                const authorsElement = document.createElement('p');
-                authorsElement.className = 'authors';
-                authorsElement.innerHTML = pub.authors;
-                contentElement.appendChild(authorsElement);
-                
-                // Add full venue if it exists (for accepted papers)
-                if (pub.venue) {
-                    const fullVenueElement = document.createElement('p');
-                    fullVenueElement.className = 'venue';
-                    fullVenueElement.textContent = pub.venue;
-                    contentElement.appendChild(fullVenueElement);
-                }
-                
-                // Add tags
-                const tagsContainer = document.createElement('div');
-                tagsContainer.className = 'pub-tags';
-                
-                pub.tags.forEach(tag => {
-                    // Skip venue tag as we're now showing it on the left
-                    if (tag.class === 'venue-tag') return;
-                    
-                    if (tag.link) {
-                        const tagLink = document.createElement('a');
-                        tagLink.href = tag.link;
-                        tagLink.className = `tag ${tag.class}`;
-                        tagLink.textContent = tag.text;
-                        tagLink.target = "_blank";
-                        tagLink.rel = "noopener noreferrer";
-                        tagsContainer.appendChild(tagLink);
-                    } else {
-                        const tagSpan = document.createElement('span');
-                        tagSpan.className = `tag ${tag.class}`;
-                        tagSpan.textContent = tag.text;
-                        tagsContainer.appendChild(tagSpan);
-                    }
-                });
-                
-                contentElement.appendChild(tagsContainer);
-                
-                // Combine elements and add to publications list
-                pubElement.appendChild(venueElement);
-                pubElement.appendChild(contentElement);
-                publicationsList.appendChild(pubElement);
-            });
+                // Add 2024 papers
+                renderPublicationGroup(accepted2024, publicationsList, counter);
+            }
         })
         .catch(error => {
             console.error('Error loading publications data:', error);
         });
+}
+
+// Function to render a group of publications
+function renderPublicationGroup(publications, container, startCounter) {
+    let counter = startCounter;
+    
+    publications.forEach(pub => {
+        const pubElement = document.createElement('div');
+        const classes = ['publication', pub.type];
+        if (pub.isFirstAuthor) classes.push('first-author');
+        pubElement.className = classes.join(' ');
+        
+        // Create venue/type label for left side
+        const venueElement = document.createElement('div');
+        venueElement.className = 'pub-venue-label';
+        
+        // Determine what text to show in the left column
+        let venueText = '';
+        if (pub.type === 'preprint') {
+            venueText = 'Preprint';
+        } else if (pub.venue) {
+            // Extract short venue name from the venue string or tags
+            const venueTag = pub.tags.find(tag => tag.class === 'venue-tag');
+            venueText = venueTag ? venueTag.text : pub.venue.split(',')[0].split(' ').pop();
+        }
+        
+        // Create publication number - display in ascending order
+        const numberElement = document.createElement('span');
+        numberElement.className = 'pub-number';
+        numberElement.textContent = counter++;
+        
+        venueElement.appendChild(numberElement);
+        
+        // Add venue text below the number
+        const venueTextElement = document.createElement('span');
+        venueTextElement.className = 'venue-text';
+        venueTextElement.textContent = venueText;
+        venueElement.appendChild(venueTextElement);
+        
+        // Create publication content container
+        const contentElement = document.createElement('div');
+        contentElement.className = 'pub-content';
+        
+        // Add title
+        const titleElement = document.createElement('h3');
+        titleElement.textContent = pub.title;
+        contentElement.appendChild(titleElement);
+        
+        // Add authors
+        const authorsElement = document.createElement('p');
+        authorsElement.className = 'authors';
+        authorsElement.innerHTML = pub.authors;
+        contentElement.appendChild(authorsElement);
+        
+        // Add full venue if it exists (for accepted papers)
+        if (pub.venue) {
+            const fullVenueElement = document.createElement('p');
+            fullVenueElement.className = 'venue';
+            fullVenueElement.textContent = pub.venue;
+            contentElement.appendChild(fullVenueElement);
+        }
+        
+        // Add tags
+        const tagsContainer = document.createElement('div');
+        tagsContainer.className = 'pub-tags';
+        
+        pub.tags.forEach(tag => {
+            // Skip venue tag as we're now showing it on the left
+            if (tag.class === 'venue-tag') return;
+            
+            if (tag.link) {
+                const tagLink = document.createElement('a');
+                tagLink.href = tag.link;
+                tagLink.className = `tag ${tag.class}`;
+                tagLink.textContent = tag.text;
+                tagLink.target = "_blank";
+                tagLink.rel = "noopener noreferrer";
+                tagsContainer.appendChild(tagLink);
+            } else {
+                const tagSpan = document.createElement('span');
+                tagSpan.className = `tag ${tag.class}`;
+                tagSpan.textContent = tag.text;
+                tagsContainer.appendChild(tagSpan);
+            }
+        });
+        
+        contentElement.appendChild(tagsContainer);
+        
+        // Combine elements and add to publications list
+        pubElement.appendChild(venueElement);
+        pubElement.appendChild(contentElement);
+        container.appendChild(pubElement);
+    });
 }
 
 // Function to render news items

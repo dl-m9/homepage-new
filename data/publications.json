@@ -130,6 +130,7 @@
     "type": "accepted",
     "venue": "IEEE Wireless Communications Magazine.",
     "isFirstAuthor": true,
+    "year": "2025",
     "tags": [
       {
         "text": "WCM'25",
@@ -148,6 +149,7 @@
     "type": "accepted",
     "isFirstAuthor": false,
     "venue": "The 2025 IEEE International Conference on Robotics & Automation, 19-23 May, Atlanta, USA.",
+    "year": "2025",
     "tags": [
       {
         "text": "ICRA'25",
@@ -166,6 +168,7 @@
     "type": "accepted",
     "isFirstAuthor": true,
     "venue": "The 39th Annual AAAI Conference on Artificial Intelligence, Philadelphia, Pennsylvania, USA, February 2025.",
+    "year": "2024",
     "tags": [
       {
         "text": "AAAI'25 Oral",
@@ -184,6 +187,7 @@
     "type": "accepted",
     "isFirstAuthor": true,
     "venue": "IEEE Transactions on Intelligent Transportation Systems.",
+    "year": "2024",
     "tags": [
       {
         "text": "TITS'24",
@@ -202,6 +206,7 @@
     "type": "accepted",
     "isFirstAuthor": true,
     "venue": "IEEE Global Communications Conference, Cape Town, South Africa, December 2024.",
+    "year": "2024",
     "tags": [
       {
         "text": "GLOBECOM'24",
@@ -220,6 +225,7 @@
     "type": "accepted",
     "isFirstAuthor": false,
     "venue": "IEEE/ACM Transactions on Networking.",
+    "year": "2024",
     "tags": [
       {
         "text": "ToN'24",
@@ -243,6 +249,7 @@
     "type": "accepted",
     "isFirstAuthor": false,
     "venue": "IEEE Transactions on Moblie Computing.",
+    "year": "2024",
     "tags": [
       {
         "text": "TMC'24",
@@ -261,6 +268,7 @@
     "type": "accepted",
     "isFirstAuthor": false,
     "venue": "IEEE Global Communications Conference, Cape Town, South Africa, December 2024.",
+    "year": "2024",
     "tags": [
       {
         "text": "GLOBECOM'24",
