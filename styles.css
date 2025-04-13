@@ -783,6 +783,7 @@ nav {
     border-radius: 25px;
     cursor: pointer;
     font-family: inherit;
+    font-weight: 600;
     transition: all 0.3s ease;
 }
 
