@@ -3,10 +3,12 @@
     --primary-color: #0066cc;
     --secondary-color: #f8f9fa;
     --text-color: #333;
+    --black-color: #000;
     --light-text: #757575;
     --border-color: #e0e0e0;
     --section-spacing: 5rem;
     --timeline-color: #f0f0f0;
+    --background-color: rgba(0, 102, 204, 0.15)
 }
 
 * {
@@ -140,13 +142,13 @@ h1 {
     justify-content: center;
     border-radius: 50%;
     transition: all 0.3s ease;
-    background-color: rgba(0, 102, 204, 0.05);
-    width: 42px;
-    height: 42px;
+    background-color: var(--background-color);
+    width: 50px;
+    height: 50px;
 }
 
 .contact-info a:hover {
-    background-color: rgba(0, 102, 204, 0.15);
+    background-color: rgba(0, 102, 204, 0.3);
     transform: translateY(-3px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -545,7 +547,7 @@ nav {
 }
 
 .date-highlight, .year-highlight {
-    background-color: rgba(0, 102, 204, 0.1);
+    background-color: var(--background-color);
     padding: 2px 8px;
     border-radius: 4px;
     display: inline-block;
@@ -775,9 +777,10 @@ nav {
 
 .filter-btn {
     padding: 0.5rem 1rem;
-    background: none;
-    border: 1px solid var(--border-color);
-    border-radius: 4px;
+    background-color: var(--background-color);
+    color: var(--primary-color);
+    border:  var(--background-color);
+    border-radius: 25px;
     cursor: pointer;
     font-family: inherit;
     transition: all 0.3s ease;
@@ -786,7 +789,7 @@ nav {
 .filter-btn.active, .filter-btn:hover {
     background-color: var(--primary-color);
     color: white;
-    border-color: var(--primary-color);
+    border-color: var(--background-color);
 }
 
 .publications-list {
@@ -941,20 +944,20 @@ nav {
 
 /* Light blue color for venue tags (accepted papers) */
 .venue-tag {
-    background-color: #e1f5fe;
-    color: #0288d1;
+    background-color: var(--background-color);
+    color: var(--primary-color);
 }
 
 /* Light purple color for highlight tags, rating tags, and code/blog tags */
 .highlight-tag, .code-tag, .blog-tag {
-    background-color: #e8eaf6;
-    color: #3f51b5;
+    background-color: var(--background-color);
+    color: var(--primary-color);
     text-decoration: none;
     transition: all 0.3s ease;
 }
 
 .code-tag:hover, .blog-tag:hover {
-    background-color: #3f51b5;
+    background-color: var(--primary-color);
     color: white;
 }
 
@@ -965,7 +968,7 @@ nav {
 }
 
 .status {
-    background-color: #e6f0ff;
+    background-color: var(--background-color);
     color: var(--primary-color);
     padding: 0.2rem 0.5rem;
     border-radius: 4px;
@@ -976,7 +979,7 @@ nav {
     display: inline-block;
     margin-left: 0.5rem;
     padding: 0.2rem 0.5rem;
-    background-color: #e6f0ff;
+    background-color: var(--background-color);
     color: var(--primary-color);
     border-radius: 4px;
     font-style: normal;
@@ -998,129 +1001,9 @@ footer {
     font-size: 0.9rem;
 }
 
-/* Projects Section */
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
 
-.project-card {
-    background-color: var(--secondary-color);
-    border-radius: 4px;
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
 
-.project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-}
 
-.project-header {
-    padding: 1.5rem;
-    background-color: rgba(0, 102, 204, 0.1);
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.project-header i {
-    font-size: 1.5rem;
-    color: var(--primary-color);
-}
-
-.project-header h3 {
-    font-size: 1.2rem;
-    margin: 0;
-}
-
-.project-content {
-    padding: 1.5rem;
-}
-
-.project-content p {
-    margin-bottom: 1rem;
-}
-
-.project-tech {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-}
-
-.project-tech span {
-    font-size: 0.8rem;
-    padding: 0.25rem 0.75rem;
-    background-color: rgba(0, 102, 204, 0.1);
-    border-radius: 20px;
-    color: var(--primary-color);
-}
-
-/* Skills Section */
-.skills-container {
-    margin-top: 2rem;
-}
-
-.skills-category {
-    margin-bottom: 2.5rem;
-}
-
-.skills-category h3 {
-    font-size: 1.3rem;
-    margin-bottom: 1.5rem;
-    color: var(--primary-color);
-}
-
-.skills-list {
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
-}
-
-.skill-item {
-    display: flex;
-    align-items: center;
-}
-
-.skill-name {
-    width: 120px;
-    font-weight: 500;
-}
-
-.skill-bar {
-    flex: 1;
-    height: 8px;
-    background-color: #e0e0e0;
-    border-radius: 4px;
-    overflow: hidden;
-}
-
-.skill-level {
-    height: 100%;
-    background-color: var(--primary-color);
-    border-radius: 4px;
-}
-
-.skills-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.8rem;
-}
-
-.skills-tags span {
-    padding: 0.5rem 1rem;
-    background-color: var(--secondary-color);
-    border-radius: 4px;
-    font-size: 0.9rem;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.skills-tags span:hover {
-    background-color: var(--primary-color);
-    color: white;
-}
 
 /* Honors Section */
 .honors-list {
@@ -1178,7 +1061,7 @@ footer {
 
 .year-highlight {
     display: inline-block;
-    background-color: #e1f5fe;
+    background-color: var(--background-color);
     padding: 5px 10px;
     border-radius: 4px;
     font-size: 0.9rem;
@@ -1195,55 +1078,7 @@ footer {
     }
 }
 
-/* CV Gallery Section */
-.gallery-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1.5rem;
-}
 
-.gallery-item {
-    position: relative;
-    border-radius: 4px;
-    overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-.gallery-item:hover {
-    transform: scale(1.03);
-}
-
-.gallery-item img {
-    width: 100%;
-    height: auto;
-    display: block;
-    transition: filter 0.3s ease;
-}
-
-.gallery-item:hover img {
-    filter: brightness(0.8);
-}
-
-.gallery-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 1rem;
-    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.gallery-item:hover .gallery-overlay {
-    opacity: 1;
-}
-
-.gallery-overlay span {
-    color: white;
-    font-weight: 600;
-}
 
 /* Button Styles */
 .btn {
@@ -1252,20 +1087,23 @@ footer {
     font-weight: 500;
     text-decoration: none;
     cursor: pointer;
-    border-radius: 4px;
+    border-radius: 25px;
     transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .btn-primary {
-    background-color: var(--primary-color);
-    color: white;
-    border: 1px solid var(--primary-color);
+    background-color: var(--background-color);
+    color: var(--primary-color);
+    border:  var(--background-color);
 }
 
 .btn-primary:hover {
-    background-color: #0052a3;
-    border-color: #0052a3;
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
     color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 .btn i {
@@ -1501,8 +1339,8 @@ footer {
 /* Ensure date-highlight and year-highlight have the same styling */
 .date-highlight, .year-highlight {
     display: inline-block;
-    background-color: #e1f5fe;
-    padding: 5px 10px;
+    background-color: rgba(0, 102, 204, 0.15);
+    padding: 2px 8px;
     border-radius: 4px;
     font-size: 0.9rem;
 }
@@ -1544,10 +1382,11 @@ footer {
 
 .service-list li {
     padding: 0.5rem 0.9rem;
-    background-color: var(--secondary-color);
-    border-radius: 4px;
+    background-color: var(--background-color);
+    border-radius: 25px;
     font-size: 0.95rem;
-    color: var(--text-color);
+    color: var(--primary-color);
+    font-weight: 600;
     transition: all 0.2s ease;
     display: inline-block;
     margin-bottom: 0.2rem;
