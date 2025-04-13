@@ -72,23 +72,7 @@
       }
     ]
   },
-  {
-    "title": "Collaborative Perception for Autonomous Driving: Challenges, Possible Solutions and Opportunities",
-    "authors": "<strong><u>Senkang \"Forest\" Hu</u></strong>, Zhengru Fang, Yiqin Deng, Xianhao Chen, Yuguang Fang",
-    "type": "preprint",
-    "isFirstAuthor": true,
-    "tags": [
-      {
-        "text": "Preprint",
-        "class": "preprint-tag"
-      },
-      {
-        "text": "PDF",
-        "class": "code-tag",
-        "link": "https://arxiv.org/abs/2401.01544"
-      }
-    ]
-  },
+  
   {
     "title": "Sense4FL: Vehicular Crowdsensing Enhanced Federated Learning for Autonomous Driving",
     "authors": "Yanan Ma, <strong><u>Senkang \"Forest\" Hu</u></strong>, Zhengru Fang, Yun Ji, Yiqin Deng, Yuguang Fang",
@@ -137,6 +121,24 @@
         "text": "PDF",
         "class": "code-tag",
         "link": "https://arxiv.org/abs/2410.02592"
+      }
+    ]
+  },
+  {
+    "title": "Collaborative Perception for Autonomous Driving: Challenges, Possible Solutions and Opportunities",
+    "authors": "<strong><u>Senkang \"Forest\" Hu</u></strong>, Zhengru Fang, Yiqin Deng, Xianhao Chen, Yuguang Fang",
+    "type": "accepted",
+    "venue": "IEEE Wireless Communications Magazine.",
+    "isFirstAuthor": true,
+    "tags": [
+      {
+        "text": "WCM'25",
+        "class": "venue-tag"
+      },
+      {
+        "text": "PDF",
+        "class": "code-tag",
+        "link": "https://arxiv.org/abs/2401.01544"
       }
     ]
   },
