@@ -8,7 +8,8 @@
     --border-color: #e0e0e0;
     --section-spacing: 5rem;
     --timeline-color: #f0f0f0;
-    --background-color: rgba(0, 102, 204, 0.15)
+    --background-color: rgba(0, 102, 204, 0.15);
+    --subsection-font-size: 1.3rem;
 }
 
 * {
@@ -917,8 +918,8 @@ nav {
 .publication-section-title {
     margin-top: 2rem;
     margin-bottom: 0rem;
-    font-size: 1.5rem;
-    color: var(--primary-color);
+    font-size: var(--subsection-font-size);
+    /* color: var(--black-color); */
     padding-bottom: 0.5rem;
     border-bottom: 1px solid var(--border-color);
 }
@@ -1356,9 +1357,9 @@ footer {
 }
 
 .service-category h3 {
-    font-size: 1.3rem;
-    color: var(--primary-color);
-    margin-bottom: 1rem;
+    font-size: var(--subsection-font-size);
+    /* color: var(--primary-color); */
+    margin-bottom: 1.5rem;
     position: relative;
     display: inline-block;
 }
