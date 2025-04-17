@@ -74,7 +74,7 @@
   },
   {
     "title": "GCP: Guarded Collaborative Perception with Spatial-Temporal Aware Malicious Agent Detection",
-    "authors": "Yihang Tao<sup>#</sup>, <strong><u>Senkang \"Forest\" Hu</u></strong><sup>#</sup>, Yue Hu, Haonan An, Hangcheng Cao, Yuguang Fang",
+    "authors": "Yihang Tao*, <strong><u>Senkang \"Forest\" Hu</u></strong>*, Yue Hu, Haonan An, Hangcheng Cao, Yuguang Fang",
     "type": "preprint",
     "isFirstAuthor": true,
     "tags": [
@@ -164,7 +164,7 @@
   },
   {
     "title": "CP-Guard: Malicious Agent Detection and Defense in Collaborative Bird's Eye View Perception",
-    "authors": "<strong><u>Senkang \"Forest\" Hu</u></strong><sup>#</sup>, Yihang Tao<sup>#</sup>, Guowen Xu, Yiqin Deng, Xianhao Chen, Yuguang Fang, Sam Kwong",
+    "authors": "<strong><u>Senkang \"Forest\" Hu</u></strong>*, Yihang Tao*, Guowen Xu, Yiqin Deng, Xianhao Chen, Yuguang Fang, Sam Kwong",
     "type": "accepted",
     "isFirstAuthor": true,
     "venue": "The 39th Annual AAAI Conference on Artificial Intelligence, Philadelphia, Pennsylvania, USA, February 2025.",
