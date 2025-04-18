@@ -1,7 +1,18 @@
 [
   {
     "date": "Apr. 2025",
-    "title": "Paper Accepted by IEEE WCM",
+    "title": "Paper Accepted by TMC",
+    "content": "One first-author paper entitled <strong>AgentsCoMerge: Large Language Model Empowered Collaborative Decision Making for Ramp Merging</strong> was accepted by IEEE Transactions on Mobile Computing (TMC)!",
+    "links": [
+      {
+        "text": "PDF",
+        "url": "https://arxiv.org/abs/2408.03624"
+      }
+    ]
+  },
+  {
+    "date": "Apr. 2025",
+    "title": "Paper Accepted by WCM",
     "content": "One first-author paper entitled <strong>Collaborative Perception for Autonomous Driving: Challenges, Possible Solutions and Opportunities</strong> was accepted by IEEE Wireless Communications Magazine (WCM)!",
     "links": [
       {
@@ -44,7 +55,7 @@
   },
   {
     "date": "Dec. 2024",
-    "title": "Paper Accepted by IEEE/ACM ToN",
+    "title": "Paper Accepted by ToN",
     "content": "One paper was accepted by IEEE/ACM Transactions on Networking (ToN)!",
     "links": [
       {

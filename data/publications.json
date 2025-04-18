@@ -34,23 +34,6 @@
     ]
   },
   {
-    "title": "AgentsCoMerge: Large Language Model Empowered Collaborative Decision Making for Multi-Lane Merging",
-    "authors": "<strong><u>Senkang \"Forest\" Hu</u></strong>, Zhengru Fang, Zihan Fang, Yiqin Deng, Xianhao Chen, Yuguang Fang, Sam Kwong",
-    "type": "preprint",
-    "isFirstAuthor": true,
-    "tags": [
-      {
-        "text": "Preprint",
-        "class": "preprint-tag"
-      },
-      {
-        "text": "PDF",
-        "class": "code-tag",
-        "link": "https://arxiv.org/abs/2408.03624"
-      }
-    ]
-  },
-  {
     "title": "AgentsCoDriver: Large Language Model Empowered Collaborative Driving with Lifelong Learning",
     "authors": "<strong><u>Senkang \"Forest\" Hu</u></strong>, Zhengru Fang, Zihan Fang, Xianhao Chen, Yuguang Fang",
     "type": "preprint",
@@ -121,6 +104,25 @@
         "text": "PDF",
         "class": "code-tag",
         "link": "https://arxiv.org/abs/2410.02592"
+      }
+    ]
+  },
+  {
+    "title": "AgentsCoMerge: Large Language Model Empowered Collaborative Decision Making for Multi-Lane Merging",
+    "authors": "<strong><u>Senkang \"Forest\" Hu</u></strong>, Zhengru Fang, Zihan Fang, Yiqin Deng, Xianhao Chen, Yuguang Fang, Sam Kwong",
+    "type": "accepted",
+    "venue": "IEEE Transactions on Mobile Computing.",
+    "isFirstAuthor": true,
+    "year": "2025",
+    "tags": [
+      {
+        "text": "TMC'25",
+        "class": "venue-tag"
+      },
+      {
+        "text": "PDF",
+        "class": "code-tag",
+        "link": "https://arxiv.org/abs/2408.03624"
       }
     ]
   },
