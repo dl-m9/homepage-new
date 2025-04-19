@@ -76,7 +76,6 @@ header {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
     position: relative;
-    background-image: url('assets/profile.jpg');
     background-size: cover;
     background-position: center;
 }
@@ -321,6 +320,16 @@ nav {
         height: 150px;
     }
     
+    .profile-image {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .profile-image::after {
+        width: 150px;
+        height: 150px;
+    }
+    
     .projects-grid {
         grid-template-columns: 1fr;
     }
@@ -476,6 +485,23 @@ nav {
     
     nav .container {
         padding: 0 2px;
+    }
+    
+    .profile-image {
+        align-self: center;
+        margin: 0 auto;
+        width: 140px;
+        height: 140px;
+    }
+    
+    #profile-img {
+        width: 140px;
+        height: 140px;
+    }
+    
+    .profile-image::after {
+        width: 140px;
+        height: 140px;
     }
 }
 
@@ -1003,10 +1029,6 @@ footer {
     font-size: 0.9rem;
 }
 
-
-
-
-
 /* Honors Section */
 .honors-list {
     margin-top: 2rem;
@@ -1079,8 +1101,6 @@ footer {
         margin-right: 0;
     }
 }
-
-
 
 /* Button Styles */
 .btn {
@@ -1186,12 +1206,14 @@ footer {
 @media (max-width: 992px) {
     .header-content {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
         gap: 2rem;
     }
     
     .profile-image {
         align-self: center;
+        margin-left: 0;
+        text-align: center;
     }
     
     .research-areas {
@@ -1217,6 +1239,16 @@ footer {
     }
     
     #profile-img {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .profile-image {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .profile-image::after {
         width: 150px;
         height: 150px;
     }
@@ -1335,6 +1367,23 @@ footer {
     
     .contact-social {
         grid-column: span 1;
+    }
+    
+    .profile-image {
+        align-self: center;
+        margin: 0 auto;
+        width: 140px;
+        height: 140px;
+    }
+    
+    #profile-img {
+        width: 140px;
+        height: 140px;
+    }
+    
+    .profile-image::after {
+        width: 140px;
+        height: 140px;
     }
 }
 
